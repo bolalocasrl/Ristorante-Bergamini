@@ -146,59 +146,28 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeIn}
-            className="text-center mb-20"
+            className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-serif text-primary mb-4">La Nostra Storia</h2>
             <div className="h-1 w-24 bg-secondary mx-auto"></div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={fadeIn}
-              className="space-y-8"
-            >
-              <h3 className="text-3xl font-serif text-white">Oltre un secolo di <span className="italic text-secondary">tradizione</span>.</h3>
-              <p className="text-foreground/80 leading-relaxed text-lg">
-                Fondata nel 1924, l'Antica Drogheria Bergamini Duilio è un'istituzione a San Giovanni in Persiceto. Nata come classica bottega di paese, ha saputo conservare l'anima e il calore di un tempo, evolvendosi in un rinomato ristorante.
-              </p>
-              <p className="text-foreground/80 leading-relaxed text-lg">
-                Dai profumi delle spezie sfuse ai piatti della tradizione emiliana preparati con maestria. Le nostre mura raccontano storie di convivialità, materie prime selezionate e amore per la buona tavola.
-              </p>
-              
-              <div className="pt-6 border-t border-secondary/20">
-                <div className="flex items-center space-x-6">
-                  <div className="text-6xl font-serif text-secondary font-bold">100</div>
-                  <div className="text-sm uppercase tracking-widest text-foreground/70 leading-relaxed font-medium">Anni di<br/>Passione</div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={fadeIn}
-              className="relative"
-            >
-              <div className="aspect-[4/5] overflow-hidden border-8 border-secondary p-1 shadow-2xl bg-background">
-                <img 
-                  src={historyImage1} 
-                  alt="Drogheria storica" 
-                  className="w-full h-full object-cover sepia-[.4] contrast-125 brightness-90"
-                />
-              </div>
-              <div className="absolute -bottom-10 -left-10 w-2/3 aspect-square border-8 border-background p-1 shadow-2xl hidden md:block z-10 bg-secondary">
-                <img 
-                  src={historyImage2} 
-                  alt="Prodotti tipici" 
-                  className="w-full h-full object-cover sepia-[.3] contrast-125 brightness-90"
-                />
-              </div>
-            </motion.div>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="max-w-5xl mx-auto bg-[#fdfaf0] p-10 md:p-16 lg:px-[15%] shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative border-2 border-secondary/40"
+            style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E\")" }}
+          >
+            <p className="text-lg md:text-xl lg:text-2xl text-[#2a1a11] leading-[1.8] font-serif mb-8 text-justify">
+              <span className="float-left text-7xl md:text-8xl font-serif text-primary mr-4 mt-2 mb-[-8px] leading-none font-bold">D</span>
+              al 1924, la storia della famiglia Bergamini si intreccia con il cuore di San Giovanni in Persiceto. Tutto ebbe inizio con Duilio, che scelse Piazza delle Erbe per aprire la sua bottega, dove l’arte della drogheria incontrava la produzione artigianale del Rosolio.
+            </p>
+            <p className="text-lg md:text-xl lg:text-2xl text-[#2a1a11] leading-[1.8] font-serif text-justify">
+              Attraverso tre generazioni, da Giuseppe fino a Pier Duilio, Alberto e Paolo, abbiamo custodito intatto il fascino della bottega del ‘900. Oggi continuiamo a celebrare la tradizione dell’osteria — tra pane, vino e salame — e l’eccellenza della nostra cucina, celebre per le inimitabili tagliatelle al prosciutto e i biscotti artigianali del nostro storico biscottificio. Un viaggio nel gusto che dura da oltre un secolo.
+            </p>
+          </motion.div>
         </div>
       </section>
 
