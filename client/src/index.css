@@ -37,67 +37,59 @@
 }
 
 :root {
-  /* Modern Antique Palette */
-  --background: 60 56% 91%; /* Cream #F5F5DC */
-  --foreground: 0 0% 20%; /* Dark Anthracite */
+  /* Drogheria Palette - Legno Scuro, Giallo Ocra, Rosso Antico */
+  --background: 16 35% 15%; /* Legno Scuro #332018 */
+  --foreground: 45 60% 95%; /* Light crema/giallo pallido per i testi */
 
-  --card: 45 33% 98%;
-  --card-foreground: 0 0% 20%;
+  --card: 45 93% 55%; /* Giallo Ocra #F9D423 */
+  --card-foreground: 16 35% 15%; /* Testo in Legno Scuro sulle card Gialle */
 
-  --popover: 60 56% 91%;
-  --popover-foreground: 0 0% 20%;
+  --popover: 16 35% 15%;
+  --popover-foreground: 45 60% 95%;
 
-  --primary: 154 100% 13%; /* British Racing Green */
-  --primary-foreground: 60 56% 91%;
+  --primary: 0 70% 35%; /* Rosso Antico / Mattone #991A1A */
+  --primary-foreground: 45 60% 95%;
 
-  --secondary: 240 64% 27%; /* Classic Night Blue */
-  --secondary-foreground: 60 56% 91%;
+  --secondary: 45 93% 55%; /* Giallo Ocra */
+  --secondary-foreground: 16 35% 15%;
 
-  --muted: 60 20% 85%;
-  --muted-foreground: 0 0% 40%;
+  --muted: 16 35% 22%;
+  --muted-foreground: 45 40% 75%;
 
-  --accent: 154 100% 13%;
-  --accent-foreground: 60 56% 91%;
+  --accent: 0 70% 35%;
+  --accent-foreground: 45 60% 95%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 60 56% 91%;
 
-  --border: 60 20% 80%;
-  --input: 60 20% 80%;
-  --ring: 154 100% 13%;
+  --border: 16 35% 25%;
+  --input: 16 35% 25%;
+  --ring: 45 93% 55%;
 
   --radius: 0.25rem;
 }
 
 .dark {
-  /* Dark mode is disabled or uses the same, but let's provide a dark elegant fallback */
-  --background: 0 0% 15%;
-  --foreground: 60 56% 91%;
-
-  --card: 0 0% 18%;
-  --card-foreground: 60 56% 91%;
-
-  --popover: 0 0% 15%;
-  --popover-foreground: 60 56% 91%;
-
-  --primary: 154 100% 20%;
-  --primary-foreground: 60 56% 91%;
-
-  --secondary: 240 64% 40%;
-  --secondary-foreground: 60 56% 91%;
-
-  --muted: 0 0% 25%;
-  --muted-foreground: 60 20% 80%;
-
-  --accent: 154 100% 20%;
-  --accent-foreground: 60 56% 91%;
-
+  /* Same theme essentially as it's already dark wood */
+  --background: 16 35% 15%; 
+  --foreground: 45 60% 95%; 
+  --card: 45 93% 55%; 
+  --card-foreground: 16 35% 15%; 
+  --popover: 16 35% 15%;
+  --popover-foreground: 45 60% 95%;
+  --primary: 0 70% 35%; 
+  --primary-foreground: 45 60% 95%;
+  --secondary: 45 93% 55%; 
+  --secondary-foreground: 16 35% 15%;
+  --muted: 16 35% 22%;
+  --muted-foreground: 45 40% 75%;
+  --accent: 0 70% 35%;
+  --accent-foreground: 45 60% 95%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 60 56% 91%;
-
-  --border: 0 0% 25%;
-  --input: 0 0% 25%;
-  --ring: 154 100% 20%;
+  --border: 16 35% 25%;
+  --input: 16 35% 25%;
+  --ring: 45 93% 55%;
 }
 
 @layer base {
@@ -106,11 +98,11 @@
   }
   body {
     @apply font-sans antialiased bg-background text-foreground;
-    /* Subtle noise texture overlay */
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    /* Subtle dark wood texture / noise over the dark background */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif tracking-tight;
+    @apply font-serif tracking-tight text-primary;
   }
 }
