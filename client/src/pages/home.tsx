@@ -62,13 +62,13 @@ export default function Home() {
               </div>
             </div>
             
-            {/* Center: New Transparent Logo */}
-            <div className="flex-shrink-0 flex items-center justify-center transition-all duration-300 absolute left-1/2 transform -translate-x-1/2 h-full py-1">
-               <a href="#" className="h-full flex items-center justify-center">
+            {/* Center: New Transparent Logo (Overhanging) */}
+            <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none">
+               <a href="#" className="pointer-events-auto block">
                  <img 
                    src={logoImage} 
                    alt="Antica Drogheria Bergamini Duilio Logo" 
-                   className="h-full w-auto object-contain drop-shadow-lg" 
+                   className="h-28 md:h-36 w-auto object-contain drop-shadow-2xl" 
                  />
                </a>
             </div>
@@ -109,12 +109,12 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90"></div>
         </div>
 
-        <div className="container relative z-10 mx-auto px-6 text-center mt-12">
+        <div className="container relative z-10 mx-auto px-6 text-center mt-12 flex flex-col items-center justify-center">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeIn}
-            className="max-w-4xl mx-auto"
+            className="max-w-4xl w-full mx-auto flex flex-col items-center"
           >
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white font-medium mb-6 leading-tight drop-shadow-xl">
               I Sapori Autentici<br />
@@ -124,9 +124,9 @@ export default function Home() {
               Dalla bottega storica alla tavola, un viaggio tra gusto e tradizione. Ristorante e drogheria d'eccellenza dove la qualità è di casa dal 1924.
             </p>
             
-            <a href="#menu">
+            <a href="#menu" className="block mx-auto">
               <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-none px-8 h-16 flex items-center justify-center text-xl font-bold tracking-widest border-2 border-secondary shadow-[0_0_20px_rgba(249,212,35,0.3)]">
-                IL NOSTRO MENU
+                <span className="flex items-center justify-center w-full h-full leading-none">IL NOSTRO MENU</span>
               </Button>
             </a>
           </motion.div>
