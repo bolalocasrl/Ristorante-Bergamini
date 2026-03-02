@@ -39,18 +39,16 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-secondary selection:text-secondary-foreground">
       {/* Header & Navigation */}
-      <header className={`fixed top-0 w-full z-50 transition-all duration-500 shadow-xl ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
-        {/* Dark Wood Area with Logo */}
-        <div className="bg-background py-4 flex justify-center items-center px-4 relative z-20">
-          {/* Subtle noise pattern matching the body */}
-          <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
+      <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
+        {/* Transparent Area with Logo over Hero */}
+        <div className="pt-6 pb-4 flex justify-center items-center px-4 relative z-20">
           <div className="text-center relative z-10">
-            <img src={logoImage} alt="Antica Drogheria Bergamini Duilio Logo" className="h-32 md:h-40 object-contain mx-auto" />
+            <img src={logoImage} alt="Antica Drogheria Bergamini Duilio Logo" className="h-24 md:h-28 object-contain mx-auto drop-shadow-2xl" />
           </div>
         </div>
 
         {/* Yellow Ochre Menu Bar */}
-        <nav className="bg-secondary w-full py-3 relative z-10 shadow-md">
+        <nav className="bg-secondary w-full py-3 relative z-10 shadow-xl">
           <div className="container mx-auto px-6 flex justify-between items-center flex-wrap gap-4">
             
             {/* Nav Links */}
