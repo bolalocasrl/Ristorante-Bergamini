@@ -106,3 +106,13 @@
     @apply font-serif tracking-tight text-primary;
   }
 }
+
+/* Custom animation for infinite scrolling carousel */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

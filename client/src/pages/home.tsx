@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Phone, UtensilsCrossed, Wine, Coffee, MapPin, Mail, ChevronRight, Instagram, Facebook } from "lucide-react";
+import { Phone, MapPin, Mail, Instagram, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import heroImage from "@/assets/images/hero-drogheria.png";
 import historyImage1 from "@/assets/images/history-1924-drogheria.png";
 import historyImage2 from "@/assets/images/history-products.png";
-import logoImage from "@assets/image_1772481998822.png";
+import logoImage from "@assets/Logo_Bergamini_1772489157803.png";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,32 +36,31 @@ export default function Home() {
     }
   };
 
+  // Carousel items (placeholders for now)
+  const carouselItems = [
+    "https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=600&auto=format&fit=crop", // Pasta
+    "https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?q=80&w=600&auto=format&fit=crop", // Meat/Stew
+    "https://images.unsplash.com/photo-1414235077428-33898b12015c?q=80&w=600&auto=format&fit=crop", // Restaurant interior
+    "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?q=80&w=600&auto=format&fit=crop", // Wine
+    "https://images.unsplash.com/photo-1481931098730-318b6f776db0?q=80&w=600&auto=format&fit=crop", // Sweets
+    "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600&auto=format&fit=crop", // Traditional food
+  ];
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-secondary selection:text-secondary-foreground">
-      {/* Header & Navigation */}
-      <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
-        {/* Transparent Area with Logo over Hero */}
-        <div className="pt-6 pb-4 flex justify-center items-center px-4 relative z-20">
-          <div className="text-center relative z-10">
-            <img src={logoImage} alt="Antica Drogheria Bergamini Duilio Logo" className="h-24 md:h-28 object-contain mx-auto drop-shadow-2xl" />
-          </div>
-        </div>
-
-        {/* Yellow Ochre Menu Bar */}
-        <nav className="bg-secondary w-full py-3 relative z-10 shadow-xl">
-          <div className="container mx-auto px-6 flex justify-between items-center flex-wrap gap-4">
+      {/* Header & Navigation (Fixed Yellow Bar) */}
+      <header className={`fixed top-0 w-full z-50 transition-all duration-300 shadow-xl bg-secondary ${isScrolled ? 'py-1' : 'py-3'}`}>
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex justify-between items-center h-20 md:h-24">
             
-            {/* Nav Links */}
-            <div className="flex items-center space-x-6 md:space-x-12 text-sm md:text-base uppercase tracking-widest font-bold text-secondary-foreground">
-              <a href="#storia" className="hover:text-primary transition-colors">La Storia</a>
-              <a href="#prodotti" className="hover:text-primary transition-colors">Prodotti</a>
-              <a href="#dove-siamo" className="hover:text-primary transition-colors">Dove Siamo</a>
-            </div>
-            
-            {/* Right Side Actions & Social */}
-            <div className="flex items-center space-x-6">
-              {/* Social Icons */}
-              <div className="hidden md:flex items-center space-x-4 text-secondary-foreground">
+            {/* Left Side: Nav Links (Desktop) & Social */}
+            <div className="flex-1 flex items-center justify-start space-x-6">
+              <div className="hidden lg:flex items-center space-x-8 text-sm uppercase tracking-widest font-bold text-secondary-foreground">
+                <a href="#storia" className="hover:text-primary transition-colors">La Storia</a>
+                <a href="#prodotti" className="hover:text-primary transition-colors">Prodotti</a>
+                <a href="#dove-siamo" className="hover:text-primary transition-colors">Dove Siamo</a>
+              </div>
+              <div className="flex items-center space-x-3 text-secondary-foreground">
                 <a href="#" className="hover:text-primary transition-colors">
                   <Instagram className="w-5 h-5" />
                 </a>
@@ -69,41 +68,37 @@ export default function Home() {
                   <Facebook className="w-5 h-5" />
                 </a>
               </div>
+            </div>
+            
+            {/* Center: New Transparent Logo */}
+            <div className={`flex-shrink-0 flex justify-center transition-all duration-300 ${isScrolled ? 'w-24 md:w-32' : 'w-36 md:w-48'} absolute left-1/2 transform -translate-x-1/2`}>
+               <a href="#">
+                 <img 
+                   src={logoImage} 
+                   alt="Antica Drogheria Bergamini Duilio Logo" 
+                   className="w-full h-auto object-contain drop-shadow-xl" 
+                 />
+               </a>
+            </div>
 
-              {/* Call Button */}
+            {/* Right Side: CTA Button */}
+            <div className="flex-1 flex items-center justify-end">
               <a href="tel:051821279">
                 <Button 
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none border-2 border-primary/20 px-6 font-bold tracking-wider uppercase transition-all shadow-lg"
+                  className={`bg-primary text-primary-foreground hover:bg-primary/90 rounded-none font-bold tracking-wider uppercase transition-all shadow-lg ${isScrolled ? 'px-4 py-2 text-xs' : 'px-6 py-5 text-sm'} border-2 border-primary/20`}
                 >
                   <Phone className="w-4 h-4 mr-2" />
-                  Chiama Ora
+                  <span className="hidden sm:inline">Chiama Ora</span>
                 </Button>
               </a>
             </div>
 
           </div>
-        </nav>
+        </div>
       </header>
 
-      {/* Floating CTA for Scrolled State / Mobile */}
-      <div className={`fixed top-0 w-full z-40 transition-transform duration-500 bg-secondary shadow-md py-3 px-6 flex justify-between items-center ${isScrolled ? 'translate-y-0' : '-translate-y-full'}`}>
-         <div className="flex items-center gap-4">
-           <img src={logoImage} alt="Logo" className="h-10 object-contain" />
-           <div className="hidden md:flex items-center space-x-3 text-secondary-foreground">
-              <a href="#" className="hover:text-primary transition-colors"><Instagram className="w-4 h-4" /></a>
-              <a href="#" className="hover:text-primary transition-colors"><Facebook className="w-4 h-4" /></a>
-           </div>
-         </div>
-         <a href="tel:051821279">
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none font-bold tracking-wide uppercase shadow-lg text-sm md:text-base">
-              <Phone className="w-4 h-4 mr-2" />
-              Chiama Ora
-            </Button>
-         </a>
-      </div>
-
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden pt-32">
+      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
           <img 
             src={heroImage} 
@@ -111,10 +106,10 @@ export default function Home() {
             className="w-full h-full object-cover"
           />
           {/* Elegant dark overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/60 to-background"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90"></div>
         </div>
 
-        <div className="container relative z-10 mx-auto px-6 text-center">
+        <div className="container relative z-10 mx-auto px-6 text-center mt-12">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -129,12 +124,33 @@ export default function Home() {
               Dalla bottega storica alla tavola, un viaggio tra gusto e tradizione. Ristorante e drogheria d'eccellenza dove la qualità è di casa dal 1924.
             </p>
             
-            <a href="tel:051821279">
+            <a href="#menu">
               <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-none px-8 py-7 text-xl font-bold tracking-widest border-2 border-secondary shadow-[0_0_20px_rgba(249,212,35,0.3)]">
-                PRENOTA UN TAVOLO
+                IL NOSTRO MENU
               </Button>
             </a>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Infinite Scrolling Carousel Section */}
+      <section className="bg-background py-8 border-b border-secondary/20 overflow-hidden relative">
+        <div className="absolute inset-0 bg-secondary/5 pointer-events-none"></div>
+        <div className="flex w-full overflow-hidden">
+          {/* CSS Animation handles the scrolling */}
+          <div className="flex w-max animate-[scroll_40s_linear_infinite] hover:[animation-play-state:paused]">
+            {/* Double the items to create seamless loop */}
+            {[...carouselItems, ...carouselItems].map((src, idx) => (
+              <div key={idx} className="w-64 md:w-80 h-48 md:h-60 flex-shrink-0 mx-2 md:mx-4 border-4 border-secondary p-1 bg-background relative group">
+                <img 
+                  src={src} 
+                  alt="Specialità" 
+                  className="w-full h-full object-cover sepia-[.2] transition-all duration-500 group-hover:sepia-0 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all duration-500"></div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -198,29 +214,30 @@ export default function Home() {
           >
             {[
               {
-                title: "Ristorante Tradizionale",
-                desc: "Piatti tipici della cucina emiliana, pasta fresca fatta a mano e carni scelte, preparati seguendo le antiche ricette.",
-                icon: <UtensilsCrossed className="w-10 h-10" />
+                title: "Dolci",
+                desc: "I famosi biscotti artigianali del nostro storico biscottificio, preparati freschi ogni giorno secondo le ricette di una volta.",
+                icon: "D" // Custom initial icon
               },
               {
-                title: "Antica Drogheria",
-                desc: "Selezione accurata di prodotti tipici locali, spezie, conserve e dolciumi. L'eccellenza del territorio a portata di mano.",
-                icon: <Coffee className="w-10 h-10" />
+                title: "Liquori",
+                desc: "Il nostro celebre Rosolio artigianale e una selezione di distillati preparati seguendo i metodi dell'antica drogheria.",
+                icon: "L" // Custom initial icon
               },
               {
-                title: "Enoteca e Vini",
-                desc: "Una cantina fornita con le migliori etichette regionali e nazionali, perfette per accompagnare ogni nostro piatto.",
-                icon: <Wine className="w-10 h-10" />
+                title: "Vini",
+                desc: "Una cantina fornita con le migliori etichette regionali e nazionali, perfette per accompagnare ogni nostro piatto in osteria.",
+                icon: "V" // Custom initial icon
               }
             ].map((service, idx) => (
               <motion.div key={idx} variants={fadeIn}>
-                <Card className="bg-card text-card-foreground border-none rounded-none shadow-xl hover:-translate-y-2 transition-transform duration-300 group h-full">
-                  <CardContent className="p-10 flex flex-col items-center text-center">
-                    <div className="mb-6 p-5 rounded-full bg-background text-secondary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300 shadow-inner">
-                      {service.icon}
+                <Card className="bg-[#fdfaf0] border-2 border-secondary/30 rounded-none shadow-xl hover:-translate-y-2 transition-transform duration-300 group h-full relative overflow-hidden"
+                      style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E\")" }}>
+                  <CardContent className="p-10 flex flex-col items-center text-center relative z-10">
+                    <div className="mb-6 w-16 h-16 flex items-center justify-center rounded-full bg-secondary/20 text-primary border-2 border-primary group-hover:bg-primary group-hover:text-secondary transition-colors duration-300 shadow-inner">
+                      <span className="font-serif text-3xl font-bold">{service.icon}</span>
                     </div>
-                    <h3 className="text-2xl font-serif text-primary mb-4 font-bold">{service.title}</h3>
-                    <p className="text-card-foreground/80 leading-relaxed font-medium">
+                    <h3 className="text-3xl font-serif text-[#2a1a11] mb-4 font-bold">{service.title}</h3>
+                    <p className="text-[#2a1a11]/80 leading-relaxed font-medium">
                       {service.desc}
                     </p>
                   </CardContent>
@@ -272,7 +289,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
             
             <div className="lg:col-span-2 space-y-6">
-              <img src={logoImage} alt="Logo Footer" className="h-20 object-contain mb-4" />
+              <img src={logoImage} alt="Logo Footer" className="h-24 object-contain mb-4" />
               <p className="text-foreground/80 max-w-md text-lg font-light">
                 Un luogo dove il tempo sembra essersi fermato. Ristorante e drogheria per ritrovare il vero sapore della tradizione.
               </p>
