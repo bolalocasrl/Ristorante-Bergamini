@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Phone, UtensilsCrossed, Wine, Coffee, MapPin, Mail, ChevronRight } from "lucide-react";
+import { Phone, UtensilsCrossed, Wine, Coffee, MapPin, Mail, ChevronRight, Instagram, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import heroImage from "@/assets/images/hero-drogheria.png";
 import historyImage1 from "@/assets/images/history-1924-drogheria.png";
 import historyImage2 from "@/assets/images/history-products.png";
+import logoImage from "@assets/image_1772481998822.png";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,47 +41,65 @@ export default function Home() {
       {/* Header & Navigation */}
       <header className={`fixed top-0 w-full z-50 transition-all duration-500 shadow-xl ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
         {/* Dark Wood Area with Logo */}
-        <div className="bg-background py-6 flex justify-center items-center px-4 relative z-20">
+        <div className="bg-background py-4 flex justify-center items-center px-4 relative z-20">
           {/* Subtle noise pattern matching the body */}
           <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
           <div className="text-center relative z-10">
-            <h1 className="text-3xl md:text-5xl font-serif font-bold text-primary tracking-wide">
-              B.D. dal 1924
-            </h1>
-            <p className="text-foreground/90 uppercase tracking-[0.3em] text-xs md:text-sm mt-2 font-medium">
-              Antica Drogheria Bergamini Duilio
-            </p>
+            <img src={logoImage} alt="Antica Drogheria Bergamini Duilio Logo" className="h-32 md:h-40 object-contain mx-auto" />
           </div>
         </div>
 
         {/* Yellow Ochre Menu Bar */}
         <nav className="bg-secondary w-full py-3 relative z-10 shadow-md">
-          <div className="container mx-auto px-6 flex justify-center md:justify-between items-center flex-wrap gap-4">
+          <div className="container mx-auto px-6 flex justify-between items-center flex-wrap gap-4">
+            
+            {/* Nav Links */}
             <div className="flex items-center space-x-6 md:space-x-12 text-sm md:text-base uppercase tracking-widest font-bold text-secondary-foreground">
               <a href="#storia" className="hover:text-primary transition-colors">La Storia</a>
-              <a href="#specialita" className="hover:text-primary transition-colors">Specialità</a>
-              <a href="#contatti" className="hover:text-primary transition-colors">Contatti</a>
+              <a href="#prodotti" className="hover:text-primary transition-colors">Prodotti</a>
+              <a href="#dove-siamo" className="hover:text-primary transition-colors">Dove Siamo</a>
             </div>
             
-            <a href="tel:051821279" className="hidden md:block">
-              <Button 
-                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none border-2 border-primary/20 px-6 font-bold tracking-wider uppercase transition-all shadow-lg"
-              >
-                <Phone className="w-4 h-4 mr-2" />
-                CHIAMA ORA: 051/821279
-              </Button>
-            </a>
+            {/* Right Side Actions & Social */}
+            <div className="flex items-center space-x-6">
+              {/* Social Icons */}
+              <div className="hidden md:flex items-center space-x-4 text-secondary-foreground">
+                <a href="#" className="hover:text-primary transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href="#" className="hover:text-primary transition-colors">
+                  <Facebook className="w-5 h-5" />
+                </a>
+              </div>
+
+              {/* Call Button */}
+              <a href="tel:051821279">
+                <Button 
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none border-2 border-primary/20 px-6 font-bold tracking-wider uppercase transition-all shadow-lg"
+                >
+                  <Phone className="w-4 h-4 mr-2" />
+                  Chiama Ora
+                </Button>
+              </a>
+            </div>
+
           </div>
         </nav>
       </header>
 
       {/* Floating CTA for Scrolled State / Mobile */}
       <div className={`fixed top-0 w-full z-40 transition-transform duration-500 bg-secondary shadow-md py-3 px-6 flex justify-between items-center ${isScrolled ? 'translate-y-0' : '-translate-y-full'}`}>
-         <div className="font-serif font-bold text-primary text-xl">B.D. 1924</div>
+         <div className="flex items-center gap-4">
+           <img src={logoImage} alt="Logo" className="h-10 object-contain" />
+           <div className="hidden md:flex items-center space-x-3 text-secondary-foreground">
+              <a href="#" className="hover:text-primary transition-colors"><Instagram className="w-4 h-4" /></a>
+              <a href="#" className="hover:text-primary transition-colors"><Facebook className="w-4 h-4" /></a>
+           </div>
+         </div>
          <a href="tel:051821279">
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none font-bold tracking-wide uppercase shadow-lg text-sm md:text-base">
               <Phone className="w-4 h-4 mr-2" />
-              051/821279
+              Chiama Ora
             </Button>
          </a>
       </div>
@@ -188,8 +207,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Servizi / Specialità */}
-      <section id="specialita" className="py-24 bg-background border-y border-secondary/20 relative">
+      {/* Prodotti */}
+      <section id="prodotti" className="py-24 bg-background border-y border-secondary/20 relative">
         <div className="absolute inset-0 bg-secondary/5 pointer-events-none"></div>
         <div className="container mx-auto px-6 relative z-10">
           <motion.div 
@@ -199,10 +218,10 @@ export default function Home() {
             variants={fadeIn}
             className="text-center mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-serif text-primary mb-4">Cosa Offriamo</h2>
+            <h2 className="text-4xl md:text-5xl font-serif text-primary mb-4">I Nostri Prodotti</h2>
             <div className="h-1 w-24 bg-secondary mx-auto"></div>
             <p className="mt-6 text-foreground/80 max-w-2xl mx-auto text-lg">
-              Prodotti scelti e piatti genuini, in un'atmosfera d'altri tempi.
+              Qualità selezionata e ingredienti genuini, dalla nostra bottega al vostro piatto.
             </p>
           </motion.div>
 
@@ -248,27 +267,63 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Dove Siamo */}
+      <section id="dove-siamo" className="py-24 bg-background relative">
+        <div className="container mx-auto px-6 text-center">
+           <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeIn}
+            className="max-w-3xl mx-auto"
+          >
+            <h2 className="text-4xl md:text-5xl font-serif text-primary mb-4">Dove Siamo</h2>
+            <div className="h-1 w-24 bg-secondary mx-auto mb-10"></div>
+            
+            <div className="bg-background border-2 border-secondary/30 p-10 shadow-2xl relative overflow-hidden">
+               <div className="absolute inset-0 bg-secondary/5 pointer-events-none"></div>
+               <MapPin className="w-12 h-12 text-primary mx-auto mb-6" />
+               <p className="text-2xl font-serif text-white mb-2">Ditta Duilio Bergamini</p>
+               <p className="text-foreground/80 text-lg mb-8 font-medium">
+                 Via Rambelli nº44<br/>
+                 San Giovanni In Persiceto<br/>
+                 Italia, 40017
+               </p>
+               
+               <a href="https://www.google.com/maps/search/?api=1&query=Via+Rambelli+44+San+Giovanni+In+Persiceto" target="_blank" rel="noopener noreferrer">
+                 <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-none px-8 py-6 text-lg font-bold tracking-widest uppercase border-2 border-secondary/50 shadow-lg w-full md:w-auto">
+                   APRI IN MAPS
+                 </Button>
+               </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Footer / Contatti */}
-      <footer id="contatti" className="bg-background pt-24 pb-12 border-t-4 border-primary relative overflow-hidden">
+      <footer className="bg-background pt-24 pb-12 border-t-4 border-primary relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
             
             <div className="lg:col-span-2 space-y-6">
-              <div className="font-serif text-3xl font-bold tracking-tight text-secondary mb-4">
-                B.D. <span className="text-primary italic font-normal">dal 1924</span>
-              </div>
-              <p className="text-foreground/70 uppercase tracking-widest text-sm font-bold mb-4">
-                Antica Drogheria Bergamini Duilio
-              </p>
+              <img src={logoImage} alt="Logo Footer" className="h-20 object-contain mb-4" />
               <p className="text-foreground/80 max-w-md text-lg font-light">
                 Un luogo dove il tempo sembra essersi fermato. Ristorante e drogheria per ritrovare il vero sapore della tradizione.
               </p>
+              <div className="flex items-center space-x-4 pt-2">
+                <a href="#" className="p-2 bg-secondary text-secondary-foreground rounded-full hover:bg-primary hover:text-primary-foreground transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href="#" className="p-2 bg-secondary text-secondary-foreground rounded-full hover:bg-primary hover:text-primary-foreground transition-colors">
+                  <Facebook className="w-5 h-5" />
+                </a>
+              </div>
             </div>
 
             <div>
-              <h4 className="text-secondary font-serif text-xl mb-6 border-b-2 border-secondary/30 pb-3 inline-block">Prenotazioni</h4>
+              <h4 className="text-secondary font-serif text-xl mb-6 border-b-2 border-secondary/30 pb-3 inline-block">Contatti & Prenotazioni</h4>
               <ul className="space-y-5">
                 <li className="flex items-center text-foreground/90">
                   <Phone className="w-5 h-5 mr-4 text-primary shrink-0" />
@@ -282,13 +337,14 @@ export default function Home() {
             </div>
 
             <div>
-              <h4 className="text-secondary font-serif text-xl mb-6 border-b-2 border-secondary/30 pb-3 inline-block">Vieni a Trovarci</h4>
+              <h4 className="text-secondary font-serif text-xl mb-6 border-b-2 border-secondary/30 pb-3 inline-block">Indirizzo</h4>
               <ul className="space-y-4">
                 <li className="flex items-start text-foreground/90 font-medium">
                   <MapPin className="w-5 h-5 mr-4 mt-1 text-primary shrink-0" />
                   <span>
-                    San Giovanni in Persiceto<br />
-                    (Bologna)
+                    Via Rambelli nº44<br />
+                    San Giovanni In Persiceto<br />
+                    (BO) - 40017
                   </span>
                 </li>
               </ul>
