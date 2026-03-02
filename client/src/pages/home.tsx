@@ -121,9 +121,6 @@ export default function Home() {
             variants={fadeIn}
             className="max-w-4xl mx-auto"
           >
-            <div className="inline-block mb-6 px-5 py-2 border-2 border-secondary text-secondary tracking-[0.2em] uppercase text-sm font-bold backdrop-blur-sm bg-background/40">
-              San Giovanni in Persiceto
-            </div>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white font-medium mb-6 leading-tight drop-shadow-xl">
               I Sapori Autentici<br />
               <span className="italic font-light text-secondary">della Nostra Terra.</span>
