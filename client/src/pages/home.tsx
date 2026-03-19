@@ -63,12 +63,12 @@ export default function Home() {
             </div>
             
             {/* Center: New Transparent Logo (Overhanging) */}
-            <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none">
-               <a href="#" className="pointer-events-auto block">
+            <div className="flex justify-center items-center h-full z-50">
+               <a href="#" className="block h-full flex items-center">
                  <img 
                    src={logoImage} 
                    alt="Antica Drogheria Bergamini Duilio Logo" 
-                   className="h-28 md:h-36 w-auto object-contain drop-shadow-2xl" 
+                   className="h-full w-auto object-contain drop-shadow-2xl" 
                  />
                </a>
             </div>
