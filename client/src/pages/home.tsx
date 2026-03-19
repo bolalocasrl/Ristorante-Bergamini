@@ -68,7 +68,7 @@ export default function Home() {
                  <img 
                    src={logoImage} 
                    alt="Antica Drogheria Bergamini Duilio Logo" 
-                   className="h-full w-auto object-contain drop-shadow-2xl" 
+                   className="h-10 md:h-27 w-auto object-contain drop-shadow-2xl" 
                  />
                </a>
             </div>
@@ -76,10 +76,10 @@ export default function Home() {
             {/* Right Side: Social & CTA Button */}
             <div className="flex-1 flex items-center justify-end space-x-6 md:space-x-8 h-full">
               <div className="hidden md:flex items-center space-x-5 text-secondary-foreground">
-                <a href="#" className="hover:text-primary transition-transform hover:scale-110 flex items-center">
+                <a href="https://www.instagram.com/ristorante_bergamini/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-transform hover:scale-110 flex items-center">
                   <Instagram className="w-5 h-5" />
                 </a>
-                <a href="#" className="hover:text-primary transition-transform hover:scale-110 flex items-center">
+                <a href="https://www.facebook.com/ristorantebergaminini" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-transform hover:scale-110 flex items-center">
                   <Facebook className="w-5 h-5" />
                 </a>
               </div>
@@ -271,7 +271,7 @@ export default function Home() {
                  Italia, 40017
                </p>
                
-               <a href="https://www.google.com/maps/search/?api=1&query=Via+Rambelli+44+San+Giovanni+In+Persiceto" target="_blank" rel="noopener noreferrer">
+               <a href="https://www.google.com/maps/place/Antica+Drogheria+Bergamini+Duilio+1924/@44.6386802,11.1867288,18.71z/data=!4m6!3m5!1s0x477fc4556ab58547:0xc4d3837ef20a0c2b!8m2!3d44.6389261!4d11.1865387!16s%2Fg%2F1tg8hl90?entry=ttu&amp;g_ep=EgoyMDI2MDMxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
                  <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-none px-8 py-6 text-lg font-bold tracking-widest uppercase border-2 border-secondary/50 shadow-lg w-full md:w-auto">
                    APRI IN MAPS
                  </Button>
@@ -294,10 +294,10 @@ export default function Home() {
                 Un luogo dove il tempo sembra essersi fermato. Ristorante e drogheria per ritrovare il vero sapore della tradizione.
               </p>
               <div className="flex items-center space-x-4 pt-2">
-                <a href="#" className="p-2 bg-secondary text-secondary-foreground rounded-full hover:bg-primary hover:text-primary-foreground transition-colors">
+                <a href="https://www.instagram.com/ristorante_bergamini/" target="_blank" rel="noopener noreferrer" className="p-2 bg-secondary text-secondary-foreground rounded-full hover:bg-primary hover:text-primary-foreground transition-colors">
                   <Instagram className="w-5 h-5" />
                 </a>
-                <a href="#" className="p-2 bg-secondary text-secondary-foreground rounded-full hover:bg-primary hover:text-primary-foreground transition-colors">
+                <a href="https://www.facebook.com/ristorantebergaminini" target="_blank" rel="noopener noreferrer" className="p-2 bg-secondary text-secondary-foreground rounded-full hover:bg-primary hover:text-primary-foreground transition-colors">
                   <Facebook className="w-5 h-5" />
                 </a>
               </div>
