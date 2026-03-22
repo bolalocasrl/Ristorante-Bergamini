@@ -5,10 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 // Import generated images
-import heroImage from "@/assets/images/hero-drogheria.png";
+import heroImage from "@assets/terrazza_nitida_1774193271402.png";
 import historyImage1 from "@/assets/images/history-1924-drogheria.png";
 import historyImage2 from "@/assets/images/history-products.png";
 import logoImage from "@assets/Logo_Bergamini_1772489157803.png";
+import dolciImage from "@assets/Dolci_2_1774193271387.webp";
+import liquoriImage from "@assets/Liquori_1774193271402.webp";
+import vinoImage from "@assets/vino_1774193271403.webp";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -105,8 +108,8 @@ export default function Home() {
             alt="Antica Drogheria Bergamini Duilio" 
             className="w-full h-full object-cover"
           />
-          {/* Elegant dark overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90"></div>
+          {/* Elegant dark overlay - reinforced for bright terrazza image */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/70 to-background/95"></div>
         </div>
 
         <div className="container relative z-10 mx-auto px-6 text-center mt-12 flex flex-col items-center justify-center">
@@ -216,25 +219,32 @@ export default function Home() {
               {
                 title: "Dolci",
                 desc: "I famosi biscotti artigianali del nostro storico biscottificio, preparati freschi ogni giorno secondo le ricette di una volta.",
-                icon: "D" // Custom initial icon
+                img: dolciImage,
+                alt: "Dolci artigianali Bergamini"
               },
               {
                 title: "Liquori",
                 desc: "Il nostro celebre Rosolio artigianale e una selezione di distillati preparati seguendo i metodi dell'antica drogheria.",
-                icon: "L" // Custom initial icon
+                img: liquoriImage,
+                alt: "Liquori artigianali Bergamini"
               },
               {
                 title: "Vini",
                 desc: "Una cantina fornita con le migliori etichette regionali e nazionali, perfette per accompagnare ogni nostro piatto in osteria.",
-                icon: "V" // Custom initial icon
+                img: vinoImage,
+                alt: "Vini Cantina Bergamini"
               }
             ].map((service, idx) => (
               <motion.div key={idx} variants={fadeIn}>
                 <Card className="bg-[#fdfaf0] border-2 border-secondary/30 rounded-none shadow-xl hover:-translate-y-2 transition-transform duration-300 group h-full relative overflow-hidden"
                       style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E\")" }}>
                   <CardContent className="p-10 flex flex-col items-center text-center relative z-10">
-                    <div className="mb-6 w-16 h-16 flex items-center justify-center rounded-full bg-secondary/20 text-primary border-2 border-primary group-hover:bg-primary group-hover:text-secondary transition-colors duration-300 shadow-inner">
-                      <span className="font-serif text-3xl font-bold">{service.icon}</span>
+                    <div className="mb-6 w-24 h-24 rounded-full overflow-hidden border-2 border-primary shadow-lg">
+                      <img
+                        src={service.img}
+                        alt={service.alt}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
                     <h3 className="text-3xl font-serif text-[#2a1a11] mb-4 font-bold">{service.title}</h3>
                     <p className="text-[#2a1a11]/80 leading-relaxed font-medium">
