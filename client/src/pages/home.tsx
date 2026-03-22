@@ -13,6 +13,26 @@ import dolciImage from "@assets/Dolci_2_1774193271387.webp";
 import liquoriImage from "@assets/Liquori_1774193271402.webp";
 import vinoImage from "@assets/vino_1774193271403.webp";
 
+// Carousel images
+import carousel1 from "@assets/piatto_11_1774193846620.webp";
+import carousel2 from "@assets/piatto_14_tartar_tartufo_1774193846620.webp";
+import carousel3 from "@assets/piatto_carne_1774193846620.webp";
+import carousel4 from "@assets/piatto_dolci_figo_1774193846620.webp";
+import carousel5 from "@assets/piatto_dolci_morsicato_1774193846621.webp";
+import carousel6 from "@assets/piatto_lasagna_figo_1774193846621.webp";
+import carousel7 from "@assets/piatto_tagliatelle_figo_1774193846621.webp";
+import carousel8 from "@assets/piatto_tortellini_fiog_1774193846621.webp";
+import carousel9 from "@assets/tortellini_panna_1774193846621.webp";
+import carousel10 from "@assets/bottiglie_polvere_1774193901629.webp";
+import carousel11 from "@assets/Interior_1774193901633.webp";
+import carousel12 from "@assets/piatto_5_1774193901633.webp";
+import carousel13 from "@assets/piatto_6_1774193901633.webp";
+import carousel14 from "@assets/piatto_7_1774193901634.webp";
+import carousel15 from "@assets/piatto_9_1774193901634.webp";
+import carousel16 from "@assets/piatto_12__1774193901634.webp";
+import carousel17 from "@assets/cotoletta_1774193974555.webp";
+import carousel18 from "@assets/panettone_con_liquore_1774193985287.webp";
+
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -39,14 +59,11 @@ export default function Home() {
     }
   };
 
-  // Carousel items (placeholders for now)
+  // Carousel items — real restaurant photos
   const carouselItems = [
-    "https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=600&auto=format&fit=crop", // Pasta
-    "https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?q=80&w=600&auto=format&fit=crop", // Meat/Stew
-    "https://images.unsplash.com/photo-1414235077428-33898b12015c?q=80&w=600&auto=format&fit=crop", // Restaurant interior
-    "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?q=80&w=600&auto=format&fit=crop", // Wine
-    "https://images.unsplash.com/photo-1481931098730-318b6f776db0?q=80&w=600&auto=format&fit=crop", // Sweets
-    "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600&auto=format&fit=crop", // Traditional food
+    carousel1, carousel2, carousel3, carousel4, carousel5, carousel6,
+    carousel7, carousel8, carousel9, carousel10, carousel11, carousel12,
+    carousel13, carousel14, carousel15, carousel16, carousel17, carousel18,
   ];
 
   return (
@@ -141,7 +158,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-secondary/5 pointer-events-none"></div>
         <div className="flex w-full overflow-hidden">
           {/* CSS Animation handles the scrolling */}
-          <div className="flex w-max animate-[scroll_40s_linear_infinite] hover:[animation-play-state:paused]">
+          <div className="flex w-max animate-[scroll_120s_linear_infinite] hover:[animation-play-state:paused]">
             {/* Double the items to create seamless loop */}
             {[...carouselItems, ...carouselItems].map((src, idx) => (
               <div key={idx} className="w-64 md:w-80 h-48 md:h-60 flex-shrink-0 mx-2 md:mx-4 border-4 border-secondary p-1 bg-background relative group">
