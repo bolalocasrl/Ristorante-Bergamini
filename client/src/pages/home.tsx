@@ -10,8 +10,8 @@ import historyImage1 from "@/assets/images/history-1924-drogheria.png";
 import historyImage2 from "@/assets/images/history-products.png";
 import logoImage from "@assets/Logo_Bergamini_1772489157803.png";
 import dolciImage from "@assets/Dolci_2_1774193271387.webp";
-import liquoriImage from "@assets/Liquori_1774193271402.webp";
-import vinoImage from "@assets/vino_1774193271403.webp";
+import liquoriImage from "@assets/liquorebergamini_1774194786929.png";
+import vinoImage from "@assets/vinobergamini_1774194786944.png";
 
 // Carousel images
 import carousel1 from "@assets/piatto_11_1774193846620.webp";
