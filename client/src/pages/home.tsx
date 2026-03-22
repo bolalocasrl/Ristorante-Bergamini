@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Phone, MapPin, Mail, Instagram, Facebook } from "lucide-react";
+import { Phone, MapPin, Mail, Instagram, Facebook, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -32,9 +32,11 @@ import carousel15 from "@assets/piatto_9_1774193901634.webp";
 import carousel16 from "@assets/piatto_12__1774193901634.webp";
 import carousel17 from "@assets/cotoletta_1774193974555.webp";
 import carousel18 from "@assets/panettone_con_liquore_1774193985287.webp";
+import menuImage from "@assets/Menubergasito_1774195466535.png";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,6 +45,15 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -68,6 +79,36 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-secondary selection:text-secondary-foreground">
+
+      {/* Menu Modal */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/80 flex items-start justify-center overflow-y-auto py-6 px-4"
+          onClick={() => setMenuOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-lg my-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="absolute -top-4 -right-2 z-10 w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center shadow-xl hover:bg-primary/80 transition-colors"
+              aria-label="Chiudi menu"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Menu image */}
+            <img
+              src={menuImage}
+              alt="Menu Antica Drogheria Bergamini"
+              className="w-full h-auto object-contain shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
+
       {/* Header & Navigation (Fixed Yellow Bar) */}
       <header className={`fixed top-0 w-full z-50 transition-all duration-300 shadow-xl bg-secondary py-1`}>
         <div className="container mx-auto px-4 md:px-8">
@@ -144,11 +185,12 @@ export default function Home() {
               Dalla bottega storica alla tavola, un viaggio tra gusto e tradizione. Ristorante e drogheria d'eccellenza dove la qualità è di casa dal 1924.
             </p>
             
-            <a href="#menu" className="block mx-auto">
-              <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-none px-8 h-16 flex items-center justify-center text-xl font-bold tracking-widest border-2 border-secondary shadow-[0_0_20px_rgba(249,212,35,0.3)]">
-                <span className="flex items-center justify-center w-full h-full leading-none">IL NOSTRO MENU</span>
-              </Button>
-            </a>
+            <button
+              onClick={() => setMenuOpen(true)}
+              className="mx-auto bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-none px-8 h-16 flex items-center justify-center text-xl font-bold tracking-widest border-2 border-secondary shadow-[0_0_20px_rgba(249,212,35,0.3)] transition-all"
+            >
+              <span className="leading-none">IL NOSTRO MENU</span>
+            </button>
           </motion.div>
         </div>
       </section>
