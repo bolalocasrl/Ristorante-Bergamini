@@ -32,7 +32,7 @@ import carousel15 from "@assets/piatto_9_1774193901634.webp";
 import carousel16 from "@assets/piatto_12__1774193901634.webp";
 import carousel17 from "@assets/cotoletta_1774193974555.webp";
 import carousel18 from "@assets/panettone_con_liquore_1774193985287.webp";
-import menuImage from "@assets/Menubergasito_1774195466535.png";
+import menuImage from "@assets/menu_berga_1775164966509.png";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
