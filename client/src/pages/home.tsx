@@ -129,7 +129,7 @@ export default function Home() {
                  <img 
                    src={logoImage} 
                    alt="Antica Drogheria Bergamini Duilio Logo" 
-                   className="h-10 md:h-27 w-auto object-contain drop-shadow-2xl" 
+                   className="h-full md:h-27 w-auto object-contain drop-shadow-2xl" 
                  />
                </a>
             </div>
