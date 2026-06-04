@@ -404,7 +404,11 @@ export default function Home() {
 
           <div className="pt-8 border-t border-secondary/20 flex flex-col md:flex-row justify-between items-center text-sm text-foreground/50 font-medium">
             <p>&copy; {new Date().getFullYear()} Antica Drogheria Bergamini Duilio. Tutti i diritti riservati.</p>
-            <p className="mt-2 md:mt-0 tracking-widest uppercase">P.IVA 01234567890</p>
+            <div className="mt-2 md:mt-0 flex items-center gap-4">
+              <p className="tracking-widest uppercase">P.IVA 00516281201</p>
+              <span className="text-foreground/30">|</span>
+              <a href="/privacy-policy" className="hover:text-secondary transition-colors uppercase tracking-widest">Privacy Policy</a>
+            </div>
           </div>
         </div>
       </footer>
